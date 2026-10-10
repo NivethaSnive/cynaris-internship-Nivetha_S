@@ -1,0 +1,142 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 30px 15px;
+    font-family: Arial, sans-serif;
+    background: #f2f4fb;
+    color: #25253a;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 28px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 25px #00000010;
+}
+
+h1 {
+    margin-bottom: 5px;
+    text-align: center;
+    color: #635bdb;
+}
+
+.subtitle {
+    margin-bottom: 25px;
+    text-align: center;
+    color: #68687d;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #d5d6e3;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 11px 15px;
+    border: none;
+    border-radius: 6px;
+    background: #635bdb;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+button:hover {
+    background: #4c45b8;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #a5a0ff;
+    outline-offset: 2px;
+}
+
+#task-count {
+    margin-top: 22px;
+    color: #68687d;
+    font-size: 0.9rem;
+}
+
+#todo-list {
+    display: grid;
+    gap: 10px;
+    margin: 15px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #e5e5ef;
+    border-radius: 8px;
+}
+
+.todo-text {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.todo-item.completed .todo-text {
+    color: #888;
+    text-decoration: line-through;
+}
+
+.complete-button {
+    background: #23845b;
+}
+
+.delete-button {
+    background: #d93648;
+}
+
+#empty-message {
+    padding: 15px 0;
+    text-align: center;
+    color: #888;
+}
+
+.secondary-button {
+    width: 100%;
+    margin-top: 10px;
+    background: #45455b;
+}
+
+@media (max-width: 420px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .todo-item {
+        flex-wrap: wrap;
+    }
+}
