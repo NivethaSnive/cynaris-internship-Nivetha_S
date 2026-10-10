@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript ES6 features interactive demo">
+    <title>JavaScript ES6+ Demo</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        h1, h2 {
+            color: #1d4ed8;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        input, select, button {
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        button {
+            background: #1d4ed8;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e40af;
+        }
+
+        #product-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .product {
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #00000010;
+        }
+
+        .product h3 {
+            margin-top: 0;
+        }
+
+        #summary {
+            padding: 16px;
+            margin: 20px 0;
+            background: #dbeafe;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 600px) {
+            #product-list {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 16px;
+            }
+        }
+    </style>
+
+    <script src="es6-demo.js" defer></script>
+</head>
+<body>
+
+    <h1>JavaScript ES6+ Product Explorer</h1>
+    <p>Practise arrow functions, destructuring, array methods and events.</p>
+
+    <div class="controls">
+        <input
+            type="text"
+            id="search"
+            placeholder="Search products..."
+            aria-label="Search products"
+        >
+
+        <select id="category" aria-label="Filter by category">
+            <option value="All">All Categories</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Accessories">Accessories</option>
+        </select>
+
+        <button id="sort-button" type="button">Sort by Price</button>
+    </div>
+
+    <div id="summary" aria-live="polite"></div>
+
+    <section id="product-list" aria-label="Product list"></section>
+
+</body>
+</html>
