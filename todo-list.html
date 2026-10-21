@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dynamic to-do list using JavaScript DOM methods">
+    <title>My To-Do List</title>
+    <link rel="stylesheet" href="todo-list.css">
+    <script src="todo-list.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <h1>My To-Do List</h1>
+        <p class="subtitle">Organize your day, one task at a time.</p>
+
+        <form id="todo-form">
+            <label for="todo-input">New task</label>
+            <div class="input-group">
+                <input
+                    type="text"
+                    id="todo-input"
+                    placeholder="Enter a task..."
+                    maxlength="150"
+                    required>
+                <button type="submit">Add Task</button>
+            </div>
+        </form>
+
+        <p id="task-count">0 tasks remaining</p>
+
+        <ul id="todo-list" aria-label="To-do tasks"></ul>
+
+        <p id="empty-message">No tasks yet. Add your first task!</p>
+
+        <button id="clear-completed" class="secondary-button" type="button">
+            Clear Completed
+        </button>
+    </main>
+</body>
+</html>
