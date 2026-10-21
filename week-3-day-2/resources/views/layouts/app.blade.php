@@ -1,57 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title') | Laravel Contact Portal</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 850px;
-            margin: 30px auto;
-            padding: 20px;
-            line-height: 1.6;
-            color: #222;
-        }
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        nav a {
-            margin-right: 18px;
-            color: #075985;
-            text-decoration: none;
-        }
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
-        main {
-            margin-top: 30px;
-        }
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-        input, textarea {
-            display: block;
-            width: 100%;
-            max-width: 500px;
-            padding: 10px;
-            margin: 8px 0 16px;
-            box-sizing: border-box;
-        }
+        <!-- Scripts -->
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <script src="{{ mix('js/app.js') }}" defer></script>
+    </head>
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+            @include('layouts.navigation')
 
-        button {
-            padding: 10px 18px;
-            cursor: pointer;
-        }
+            <!-- Page Heading -->
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
 
-        .error {
-            color: #b91c1c;
-        }
-
-        .success {
-            color: #166534;
-        }
-    </style>
-</head>
-<body>
-    @include('partials.nav')
-
-    <main>
-        @yield('content')
-    </main>
-</body>
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
+        </div>
+    </body>
 </html>

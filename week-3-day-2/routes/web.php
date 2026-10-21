@@ -1,20 +1,18 @@
 <?php
 
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ContactController;
 
-Route::get('/', [HomeController::class, 'index'])
-    ->name('home');
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/about', [HomeController::class, 'about'])
-    ->name('about');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-Route::get('/contact', [ContactController::class, 'create'])
-    ->name('contact');
+    Route::resource('tasks', TaskController::class);
+});
 
-Route::post('/contact', [ContactController::class, 'store'])
-    ->name('contact.store');
-
-Route::get('/contact/success', [ContactController::class, 'success'])
-    ->name('contact.success');
+require __DIR__.'/auth.php';
